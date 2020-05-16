@@ -1,0 +1,52 @@
+{
+    "manifest_version": 2,
+    "name": "StartPage",
+    "short_name": "StartPage",
+	"version": "0.0.1",
+
+    "description": "Custom StartPage Plugin for Firefox",
+    "homepage_url": "https://github.com/derickboss1/startpage",
+    
+    "developer": {
+        "name": "Derick Tseng",
+        "url": "https://github.com/derickboss1"
+    },
+
+    "permissions": [
+        "bookmarks",
+        "storage"
+    ],
+
+    "browser_action": {
+        "default_title": "StartPage",
+        "browser_style": false
+    },
+
+    "omnibox": {
+        "keyword": "!"
+    },
+
+    "background": {
+        "page": "src/index.html"
+    },
+
+    "options_ui": {
+        "page": "src/index.html",
+        "open_in_tab": true
+    },
+
+    "chrome_url_overrides" : {
+        "newtab": "src/index.html"
+    },
+
+    "chrome_settings_overrides": {
+        "homepage": "src/index.html"
+    },
+
+    "applications": {
+        "gecko": {
+            "id": "startpage@derickboss1.addons.mozilla.org",
+            "update_url": "https://www.google.com"
+        }
+    }
+}

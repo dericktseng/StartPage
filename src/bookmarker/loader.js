@@ -1,3 +1,8 @@
+window.addEventListener('DOMContentLoaded', function(event) {
+    var bookmarktree = browser.bookmarks.getTree();
+    bookmarktree.then(display, console.error);
+});
+
 // name of the folder.
 var FOLDERNAME = "StartPage";
 var LOCATION = "Bookmarks Toolbar";
@@ -55,12 +60,36 @@ function objectOutputHelper(bookmarks, bookmarkobj, titleobj) {
 }
 
 /* Changes bookmarkObject to html. */
-function toHTML(tree) {
+function toCards(tree) {
     var obj = objectOutput(tree);
     var foldernames = obj[1];
     var bookmarks = obj[0];
-    console.log(foldernames);
-    console.log(bookmarks);
+    var cards = [];
+    for (property in bookmarks) {
+        if (bookmarks[property].length != 0) {
+            cards.push(domCard(foldernames[property], bookmarks[property]));
+        }
+    }
+    return cards;
+}
+
+/* Forms a card to display. */
+function domCard(title, bookmarks) {
+    var card = document.createElement("div");
+    card.classList.add("card");
+    var cardtitle = document.createElement("div");
+    cardtitle.classList.add("title");
+    cardtitle.textContent = title;
+    card.appendChild(cardtitle);
+
+    for (bookmark of bookmarks) {
+        var div = document.createElement("div");
+        div.classList.add("bookmark");
+        var html = `<a href=${bookmark['url']} class="link">${bookmark['title']}</a>`;
+        div.innerHTML = html;
+        card.appendChild(div);
+    }
+    return card;
 }
 
 /* Displays given bookmarktree onto the screen.
@@ -69,8 +98,9 @@ function toHTML(tree) {
 function display(tree) {
     tree = getTree(tree);
     if (exists(tree)) {
-        console.log(tree);
-        console.log(toHTML(tree));
+        var area = document.getElementById("display");
+        var cards = toCards(tree);
+        organize(cards);
     } else {
         browser.bookmarks.create({
             "index": 0,
@@ -80,8 +110,3 @@ function display(tree) {
         });
     }
 }
-
-// loads bookmarks from the root
-var bookmarktree = browser.bookmarks.getTree();
-bookmarktree.then(display, console.error);
-

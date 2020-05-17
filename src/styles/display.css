@@ -1,0 +1,40 @@
+:root {
+    --margin: 2em;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+}
+
+#display {
+    padding: 0;
+    margin: var(--margin);
+    display: flex;
+    flex-direction: horizontal;
+    gap: var(--margin);
+}
+
+.card {
+    margin-bottom: var(--margin);
+}
+
+.bin {
+    flex-basis: 0;
+    flex-grow: 1;
+    visibility: hidden;
+}
+
+.link {
+    text-decoration: none;
+    display: block;
+    padding: 0.5em;
+}
+
+.bookmark {
+}
+
+.title {
+    padding: 0.5em;
+}
+

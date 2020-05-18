@@ -24,30 +24,43 @@ function organizeDisplay(cols, cards) {
         bins.push(bin);
     }
 
-    for (let i = 0; i < cards.length - cols; i++) {
-        var card = cards[i];
-        bins[i % cols].appendChild(card);
-    }
-
     var testbin = document.createElement("div");
     testbin.classList.add("bin");
     display.appendChild(testbin);
 
-    var lastcards = [];
-    for (let i = cards.length - cols; i < cards.length; i++) {
-        var card = cards[i];
+    // allows calculating each card's height.
+    for (let card of cards) {
         testbin.appendChild(card);
-        lastcards.push(card);
     }
-    for (let i = 0; i < cols; i++) {
-        var bin = minBin(bins);
-        bin.appendChild(maxCard(lastcards));
-    }
+    
+    // distribution algorithm.
+    distribute(bins, cards);
 
     // makes all bins visible
     display.removeChild(testbin);
     for (let bin of bins) {
-        bin.style.visibility = "visible";
+        bin.style.opacity = 1;
+    }
+}
+
+/* algorithm to distribute the cards into the bins */
+function distribute(bins, cards) {
+    var cols = bins.length;
+    var row = cards.splice(0, cols);
+    var isfirstrow = true;
+    while (row.length > 0) {
+        if (isfirstrow) {
+            for (let i = 0; i < row.length; i++) {
+                bins[i].appendChild(row[i]);
+            }
+            isfirstrow = false;
+        } else {
+            var cycles = row.length;
+            for (let i = 0; i < cycles; i++) {
+                minBin(bins).appendChild(maxCard(row));
+            }
+        }
+        row = cards.splice(0, cols);
     }
 }
 
@@ -64,12 +77,7 @@ function minBin(bins) {
 
 /* Gets the height of given bin. */
 function binHeight(bin) {
-    var children = bin['children'];
-    var total = 0;
-    for (let child of children) {
-        total += child.clientHeight;
-    }
-    return total;
+    return bin.clientHeight;
 }
 
 function maxCard(cards) {

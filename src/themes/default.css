@@ -1,11 +1,41 @@
+
+body {
+    background: #fdfdfd;
+}
+
+.bin {
+}
+
 .card {
-    background-color: beige;
+    background-color: #f1f1f1;
+    box-shadow: 1px 1px 5px 1px #9aa8c2;
+    transition-duration: 150ms;
+}
+
+.card:hover {
+    box-shadow: 1px 5px 10px 1px #9aa8c2;
+}
+
+#timedisplay {
+    color: #15349e;
+    font-weight: 100;
+    font-size: 4em;
 }
 
 .title {
-
+    border-top: 0.3em solid #377bd2;
+    font-size: 1.3em;
+    color: #15349e;
+    font-weight: 600;
 }
 
-.bookmark {
+.link {
+    color: #5f87cb;
+    font-size: 1.1em;
+    transition-duration: 150ms;
+}
 
+.link:hover {
+   color: #ffffff;
+   background-color: #5092e6;
 }

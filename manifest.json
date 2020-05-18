@@ -14,7 +14,8 @@
 
     "permissions": [
         "bookmarks",
-        "storage"
+        "storage",
+        "activeTab"
     ],
 
     "browser_action": {
@@ -31,7 +32,7 @@
     },
 
     "options_ui": {
-        "page": "src/index.html",
+        "page": "src/settings/settings.html",
         "open_in_tab": true
     },
 

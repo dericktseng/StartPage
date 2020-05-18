@@ -1,40 +1,63 @@
+@font-face {
+    font-family: 'Inconsolata';
+    src: url('../../resources/Inconsolata/Inconsolata-VariableFont_wdth,wght.ttf');
+}
+
 :root {
-    --margin: 2em;
+    --margin: 1.5rem;
+    --padding: 0.5em;
+    font-size: 14px;
+    user-select: none;
 }
 
 body {
     padding: 0;
-    margin: 0;
+    margin: 4em;
+    margin-bottom: 0;
+    font-family: Inconsolata;
+}
+
+#header {
+    margin-bottom: 2em;
+}
+
+#timedisplay {
+    text-align: center;
+    font-size: 5em;
 }
 
 #display {
     padding: 0;
-    margin: var(--margin);
     display: flex;
-    flex-direction: horizontal;
+    flex-direction: row;
+    align-items: flex-start;
     gap: var(--margin);
-}
-
-.card {
-    margin-bottom: var(--margin);
 }
 
 .bin {
     flex-basis: 0;
     flex-grow: 1;
-    visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    gap: var(--margin);
+    transition-duration: 250ms;
+}
+
+.card {
+    text-transform: capitalize;
 }
 
 .link {
     text-decoration: none;
     display: block;
-    padding: 0.5em;
+    padding: var(--padding);
 }
 
 .bookmark {
 }
 
 .title {
-    padding: 0.5em;
+    padding: var(--padding);
 }
 

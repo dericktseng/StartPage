@@ -14,8 +14,7 @@
 
     "permissions": [
         "bookmarks",
-        "storage",
-        "activeTab"
+        "storage"
     ],
 
     "browser_action": {
@@ -46,8 +45,7 @@
 
     "applications": {
         "gecko": {
-            "id": "startpage@derickboss1.addons.mozilla.org",
-            "update_url": "https://www.google.com"
+            "id": "startpage@derickboss1.addons.mozilla.org"
         }
     }
 }

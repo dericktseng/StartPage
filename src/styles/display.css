@@ -1,12 +1,7 @@
-@font-face {
-    font-family: 'Inconsolata';
-    src: url('../../resources/Inconsolata/Inconsolata-VariableFont_wdth,wght.ttf');
-}
-
 :root {
     --margin: 1.5rem;
     --padding: 0.5em;
-    font-size: 14px;
+    font-size: 13px;
     user-select: none;
 }
 
@@ -14,7 +9,7 @@ body {
     padding: 0;
     margin: 4em;
     margin-bottom: 0;
-    font-family: Inconsolata;
+    font-family: monospace;
 }
 
 #header {

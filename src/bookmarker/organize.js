@@ -1,11 +1,11 @@
-/* Initializes the display. */
+/** Initializes the display. */
 function organize(cards) {
     var columns = browser.storage.sync.get("cols");
     
     columns.then(function(cols) {
         var isSet = Object.keys(cols).length != 0;
         if (!isSet) {
-            var setter = browser.storage.sync.set({"cols": 5});
+            browser.storage.sync.set({"cols": 5});
             organizeDisplay(5, cards);
         } else {
             organizeDisplay(cols['cols'], cards);
@@ -13,7 +13,7 @@ function organize(cards) {
     }, console.error);
 }
 
-/* Organizes display into mason style. */
+/** Organizes display into mason style. */
 function organizeDisplay(cols, cards) {
     var display = document.getElementById("display");
     var bins = [];
@@ -43,7 +43,7 @@ function organizeDisplay(cols, cards) {
     }
 }
 
-/* algorithm to distribute the cards into the bins */
+/** algorithm to distribute the cards into the bins */
 function distribute(bins, cards) {
     var cols = bins.length;
     var row = cards.splice(0, cols);
@@ -64,7 +64,7 @@ function distribute(bins, cards) {
     }
 }
 
-/* Get the minimum height bin. */
+/** Get the minimum height bin. */
 function minBin(bins) {
     var mbin = bins[0];
     for (let i = 1; i < bins.length; i++) {
@@ -75,11 +75,12 @@ function minBin(bins) {
     return mbin;
 }
 
-/* Gets the height of given bin. */
+/** Gets the height of given bin. */
 function binHeight(bin) {
     return bin.clientHeight;
 }
 
+/** Gets the card with the max height and takes it out of list. */
 function maxCard(cards) {
     var mcard = cards[0];
     var index = 0;

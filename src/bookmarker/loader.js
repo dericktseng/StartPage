@@ -7,7 +7,7 @@ window.addEventListener('DOMContentLoaded', function(event) {
 var FOLDERNAME = "StartPage";
 var LOCATION = "Bookmarks Toolbar";
 
-/* Gets the correct tree to work with.
+/** Gets the correct tree to work with.
  * @param tree - root tree.
  * @return tree to display. */
 function getTree(tree) {
@@ -30,13 +30,13 @@ function getTree(tree) {
 }
 
 
-/* Checks whether given startpage folder exists. */
+/** Checks whether given startpage folder exists. */
 function exists(tree) {
     return (tree['title'] == FOLDERNAME);
 }
 
 
-/* Changes the given tree to an Object. */
+/** Changes the given tree to an Object. */
 function objectOutput(bookmarks) {
     var bookmarkobj = {};
     var titleobj = {};
@@ -44,7 +44,7 @@ function objectOutput(bookmarks) {
     return [bookmarkobj, titleobj];
 }
 
-/* Helper function for objectOutput. */
+/** Helper function for objectOutput. */
 function objectOutputHelper(bookmarks, bookmarkobj, titleobj) {
     if (bookmarks['type'] == "bookmark") {
         var key = bookmarks['parentId'];
@@ -59,7 +59,7 @@ function objectOutputHelper(bookmarks, bookmarkobj, titleobj) {
     }
 }
 
-/* Changes bookmarkObject to html. */
+/** Changes bookmarkObject to html. */
 function toCards(tree) {
     var obj = objectOutput(tree);
     var foldernames = obj[1];
@@ -73,7 +73,7 @@ function toCards(tree) {
     return cards;
 }
 
-/* Forms a card to display. */
+/** Forms a card to display. */
 function domCard(title, bookmarks) {
     var card = document.createElement("div");
     card.classList.add("card");
@@ -85,20 +85,22 @@ function domCard(title, bookmarks) {
     for (bookmark of bookmarks) {
         var div = document.createElement("div");
         div.classList.add("bookmark");
-        var html = `<a href=${bookmark['url']} class="link">${bookmark['title']}</a>`;
-        div.innerHTML = html;
+        var link = document.createElement("a");
+        link.textContent = bookmark['title'];
+        link.classList.add("link");
+        link.href = bookmark['url'];
+        div.appendChild(link);
         card.appendChild(div);
     }
     return card;
 }
 
-/* Displays given bookmarktree onto the screen.
+/** Displays given bookmarktree onto the screen.
  * @param tree - the root tree.
  */
 function display(tree) {
     tree = getTree(tree);
     if (exists(tree)) {
-        var area = document.getElementById("display");
         var cards = toCards(tree);
         organize(cards);
     } else {

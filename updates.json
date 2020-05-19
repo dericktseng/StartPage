@@ -1,0 +1,12 @@
+{
+	"addons": {
+		"startpage@derickboss1.addons.mozilla.org": {
+			"updates": [
+				{
+					"version": "0.0.1",
+					"update_link": "https://github.com/derickboss1/StartPage/releases/download/v0.0.1/startpage-0.0.1-fx.xpi"
+				}
+			]
+		}
+	}
+}

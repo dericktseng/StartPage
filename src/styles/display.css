@@ -42,6 +42,7 @@ body {
     opacity: 0;
     gap: var(--margin);
     transition-duration: 250ms;
+    margin-bottom: var(--margin);
 }
 
 .card {

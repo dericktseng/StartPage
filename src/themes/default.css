@@ -1,13 +1,13 @@
 
 body {
-    background: #fdfdfd;
+    background: #fefefe;
 }
 
 .bin {
 }
 
 .card {
-    background-color: #f1f1f1;
+    background-color: #f9f9f9;
     box-shadow: 1px 1px 5px 1px #9aa8c2;
     transition-duration: 150ms;
 }

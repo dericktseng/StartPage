@@ -5,6 +5,10 @@
 				{
 					"version": "0.0.1",
 					"update_link": "https://github.com/derickboss1/StartPage/releases/download/v0.0.1/startpage-0.0.1-fx.xpi"
+				},
+				{
+					"version": "0.0.2",
+					"update_link": "https://github.com/derickboss1/StartPage/releases/download/v0.0.2/startpage-0.0.2-fx.xpi"
 				}
 			]
 		}

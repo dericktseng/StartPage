@@ -20,6 +20,7 @@ function displayColumns() {
         dropdown.id = "dropdown";
         dropdown.addEventListener('change', saveColumns);
 
+        // numbers of columns allowed to select (only between 2-8)
         for (var i = 2; i <= 8; i++) {
             var option = document.createElement("option");
             option.value = i;
@@ -29,6 +30,7 @@ function displayColumns() {
                     option.selected = "selected";
                 }
             } else {
+                // set 5 as the default number of columns
                 if (i == 5) {
                     option.selected = "selected";
                 }

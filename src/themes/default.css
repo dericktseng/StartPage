@@ -1,15 +1,14 @@
-
 body {
     background: #fefefe;
-}
-
-.bin {
+	font-family: 'Roboto', 'Segoe UI', 'Sans Serif';
+	font-style: Semi-Expanded;
+	background-color: white;
 }
 
 .card {
-    background-color: #f9f9f9;
     box-shadow: 1px 1px 5px 1px #9aa8c2;
     transition-duration: 150ms;
+	background-color: #fefefe;
 }
 
 .card:hover {
@@ -20,22 +19,29 @@ body {
     color: #15349e;
     font-weight: 100;
     font-size: 4em;
+	font-family: 'Inconsolata', 'Lucida Sans';
 }
 
 .title {
     border-top: 0.3em solid #377bd2;
     font-size: 1.3em;
     color: #15349e;
-    font-weight: 600;
+    font-weight: 500;
 }
 
 .link {
-    color: #5f87cb;
     font-size: 1.1em;
     transition-duration: 150ms;
+	color: #295771;
+	padding: 0.5em;
 }
 
 .link:hover {
    color: #ffffff;
    background-color: #5092e6;
+}
+
+#display {
+	margin-left: 2em;
+	margin-right: 2em;
 }

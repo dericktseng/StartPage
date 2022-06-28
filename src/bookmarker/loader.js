@@ -1,7 +1,25 @@
 window.addEventListener('DOMContentLoaded', function(event) {
+    display_bookmarks();
+});
+
+window.addEventListener('resize', debounce(function(event) {
+    display_bookmarks();
+}));
+
+function display_bookmarks() {
     var bookmarktree = browser.bookmarks.getTree();
     bookmarktree.then(display, console.error);
-});
+}
+
+function debounce(func) {
+    var timer;
+    return function(event) {
+        if (timer) {
+            clearTimeout(timer);
+        }
+        timer = setTimeout(func, 50, event);
+    }
+}
 
 // name of the folder.
 var FOLDERNAME = "StartPage";

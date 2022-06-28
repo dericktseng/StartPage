@@ -1,21 +1,38 @@
+/** obtains the "optimal" number of columns for comfortable display. */
+function calculateOptimalColumns(columns) {
+    // minimum allowable width of card in px
+    var min_card_width = 300;
+    var max_cols = Math.floor(window.innerWidth / min_card_width);
+    return Math.min(columns, max_cols);
+}
+
 /** Initializes the display. */
 function organize(cards) {
     var columns = browser.storage.sync.get("cols");
     
     columns.then(function(cols) {
         var isSet = Object.keys(cols).length != 0;
+        var defaultColCount = 5;
+        var columns = defaultColCount;
         if (!isSet) {
-            browser.storage.sync.set({"cols": 5});
-            organizeDisplay(5, cards);
+            browser.storage.sync.set({"cols": defaultColCount});
         } else {
-            organizeDisplay(cols['cols'], cards);
+            columns = cols['cols'];
         }
+
+        columns = calculateOptimalColumns(columns);
+        organizeDisplay(columns, cards);
+
     }, console.error);
 }
 
 /** Organizes display into mason style. */
 function organizeDisplay(cols, cards) {
     var display = document.getElementById("display");
+
+    // clears the display
+    display.textContent = "";
+
     var bins = [];
     for (let i = 0; i < cols; i++) {
         var bin = document.createElement("div");

@@ -1,9 +1,30 @@
 window.onload = displaySettings;
 
-/* displays stuff on settings page. */
+/** displays stuff on settings page. */
 function displaySettings(event) {
     displayColumns();
     displayCSS();
+}
+
+/** appends the list of options of allowable numbers of columns to the settings */
+function generateDropdown(dropdown) {
+    // numbers of columns allowed to select (only between 1-8)
+    for (var i = 1; i <= 8; i++) {
+        var option = document.createElement("option");
+        option.value = i;
+        option.innerText = i;
+        if (isSet) {
+            if (i == cols) {
+                option.selected = "selected";
+            }
+        } else {
+            // set 5 as the default number of columns
+            if (i == 5) {
+                option.selected = "selected";
+            }
+        }
+        dropdown.appendChild(option);
+    }
 }
 
 /** Displays Column Settings. */
@@ -11,7 +32,7 @@ function displayColumns() {
     let getColumns = browser.storage.sync.get("cols");
     getColumns.then(function(cols) {
         var isSet = Object.keys(cols).length != 0;
-        cols = cols['cols']; 
+        cols = cols['cols'];
         var box = document.getElementById("columns");
         var label = document.createElement("label");
         label.htmlFor = "dropdown";
@@ -20,23 +41,7 @@ function displayColumns() {
         dropdown.id = "dropdown";
         dropdown.addEventListener('change', saveColumns);
 
-        // numbers of columns allowed to select (only between 2-8)
-        for (var i = 2; i <= 8; i++) {
-            var option = document.createElement("option");
-            option.value = i;
-            option.innerText = i;
-            if (isSet) {
-                if (i == cols) {
-                    option.selected = "selected";
-                }
-            } else {
-                // set 5 as the default number of columns
-                if (i == 5) {
-                    option.selected = "selected";
-                }
-            }
-            dropdown.appendChild(option);
-        }
+        generateDropdown(dropdown);
 
         box.appendChild(label)
         box.appendChild(dropdown);

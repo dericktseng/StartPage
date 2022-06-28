@@ -2,7 +2,7 @@
     "manifest_version": 2,
     "name": "StartPage",
     "short_name": "StartPage",
-	"version": "0.0.5",
+	"version": "0.1.0",
 
     "description": "Custom StartPage Plugin for Firefox",
     "homepage_url": "https://github.com/derickboss1/startpage",

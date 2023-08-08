@@ -2,14 +2,14 @@
     "manifest_version": 2,
     "name": "StartPage",
     "short_name": "StartPage",
-	"version": "0.1.0",
+	"version": "0.1.1",
 
     "description": "Custom StartPage Plugin for Firefox",
-    "homepage_url": "https://github.com/derickboss1/startpage",
+    "homepage_url": "https://github.com/metric-dt/startpage",
     
     "developer": {
         "name": "Derick Tseng",
-        "url": "https://github.com/derickboss1"
+        "url": "https://github.com/metric-dt"
     },
 
     "permissions": [
@@ -45,8 +45,8 @@
 
     "applications": {
         "gecko": {
-            "id": "startpage@derickboss1.addons.mozilla.org",
-            "update_url": "https://raw.githubusercontent.com/derickboss1/StartPage/master/updates.json"
+            "id": "startpage@dericktseng.addons.mozilla.org",
+            "update_url": "https://raw.githubusercontent.com/metric-dt/StartPage/master/updates.json"
         }
     }
 }

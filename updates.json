@@ -1,30 +1,30 @@
 {
     "addons": {
-        "startpage@derickboss1.addons.mozilla.org": {
+        "startpage@dericktseng.addons.mozilla.org": {
             "updates": [
                 {
                     "version": "0.0.1",
-                    "update_link": "https://github.com/derickboss1/StartPage/releases/download/v0.0.1/startpage-0.0.1-fx.xpi"
+                    "update_link": "https://github.com/metric-dt/StartPage/releases/download/v0.0.1/startpage-0.0.1-fx.xpi"
                 },
                 {
                     "version": "0.0.2",
-                    "update_link": "https://github.com/derickboss1/StartPage/releases/download/v0.0.2/startpage-0.0.2-fx.xpi"
+                    "update_link": "https://github.com/metric-dt/StartPage/releases/download/v0.0.2/startpage-0.0.2-fx.xpi"
                 },
                 {
                     "version": "0.0.3",
-                    "update_link": "https://github.com/derickboss1/StartPage/releases/download/v0.0.3/startpage-0.0.3-fx.xpi"
+                    "update_link": "https://github.com/metric-dt/StartPage/releases/download/v0.0.3/startpage-0.0.3-fx.xpi"
                 },
                 {
                     "version": "0.0.4",
-                    "update_link": "https://github.com/derickboss1/StartPage/releases/download/v0.0.4/startpage-0.0.4-fx.xpi"
+                    "update_link": "https://github.com/metric-dt/StartPage/releases/download/v0.0.4/startpage-0.0.4-fx.xpi"
                 },
                 {
                     "version": "0.0.5",
-                    "update_link": "https://github.com/derickboss1/StartPage/releases/download/v0.0.5/startpage-0.0.5-fx.xpi"
+                    "update_link": "https://github.com/metric-dt/StartPage/releases/download/v0.0.5/startpage-0.0.5-fx.xpi"
                 },
                 {
                     "version": "0.1.0",
-                    "update_link": "https://github.com/derickboss1/StartPage/releases/download/v0.1.0/startpage-0.1.0-fx.xpi"
+                    "update_link": "https://github.com/metric-dt/StartPage/releases/download/v0.1.0/startpage-0.1.0-fx.xpi"
                 }
             ]
         }

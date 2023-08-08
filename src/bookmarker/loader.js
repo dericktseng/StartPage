@@ -1,58 +1,12 @@
+// load on startup.
 window.addEventListener('DOMContentLoaded', function(event) {
     display_bookmarks();
 });
-
-window.addEventListener('resize', debounce(function(event) {
-    display_bookmarks();
-}));
 
 function display_bookmarks() {
     var bookmarktree = browser.bookmarks.getTree();
     bookmarktree.then(display, console.error);
 }
-
-function debounce(func) {
-    var timer;
-    return function(event) {
-        if (timer) {
-            clearTimeout(timer);
-        }
-        timer = setTimeout(func, 50, event);
-    }
-}
-
-// name of the folder.
-var FOLDERNAME = "StartPage";
-var LOCATION = "Bookmarks Toolbar";
-
-/** Gets the correct tree to work with.
- * @param tree - root tree.
- * @return tree to display. */
-function getTree(tree) {
-    tree = tree[0];  // gets the tree root
-    var children = tree['children'];
-    for (child of children) {
-        if (child['title'] == LOCATION) {
-            tree = child;
-            children = tree['children'];
-            break;
-        }
-    }
-    for (child of children) {
-        if (child['title'] == FOLDERNAME) {
-            tree = child;
-            break;
-        }
-    }
-    return tree;
-}
-
-
-/** Checks whether given startpage folder exists. */
-function exists(tree) {
-    return (tree['title'] == FOLDERNAME);
-}
-
 
 /** Changes the given tree to an Object. */
 function objectOutput(bookmarks) {
@@ -113,18 +67,24 @@ function domCard(title, bookmarks) {
     return card;
 }
 
-/** Displays given bookmarktree onto the screen.
- * @param tree - the root tree.
+/**
+ * Displays given bookmarktree onto the screen.
+ * @param treeroot - the root tree.
  */
-function display(tree) {
-    tree = getTree(tree);
-    if (exists(tree)) {
-        var cards = toCards(tree);
+function display(treeroot) {
+    // name of the folder to look for bookmarks.
+    var FOLDERNAME = "StartPage";
+    var LOCATION = "Bookmarks Toolbar";
+
+    let bmarktoolbar = treeroot[0].children.find((elem) => elem['title'] == LOCATION);
+    let folder = bmarktoolbar.children.find((elem) => elem['title'] == FOLDERNAME);
+    if (folder != undefined) {
+        var cards = toCards(folder);
         organize(cards);
     } else {
         browser.bookmarks.create({
             "index": 0,
-            "parentId": tree['id'],
+            "parentId": bmarktoolbar['id'],
             "title": FOLDERNAME,
             "type": "folder"
         });

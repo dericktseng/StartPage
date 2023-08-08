@@ -2,9 +2,9 @@
     "manifest_version": 2,
     "name": "StartPage",
     "short_name": "StartPage",
-	"version": "0.1.1",
+	"version": "0.1.2",
 
-    "description": "Custom StartPage Plugin for Firefox",
+    "description": "StartPage Plugin for Firefox that uses your bookmarks. Customizable with CSS.",
     "homepage_url": "https://github.com/metric-dt/startpage",
     
     "developer": {

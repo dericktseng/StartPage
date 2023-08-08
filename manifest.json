@@ -43,7 +43,7 @@
         "homepage": "src/index.html"
     },
 
-    "applications": {
+    "browser_specific_settings": {
         "gecko": {
             "id": "startpage@dericktseng.addons.mozilla.org"
         }
